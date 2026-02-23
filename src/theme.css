@@ -1,0 +1,48 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #222222;
+  --sidebar-bg: #f4f4f4;
+}
+
+[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --text: #f5f5f5;
+  --sidebar-bg: #2a2a2a;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+header { display: flex; justify-content: center; align-items: center; }
+
+header, footer {
+  grid-column: 1 / span 2;
+  padding: 1rem;
+  background: var(--sidebar-bg);
+}
+
+aside {
+  background: var(--sidebar-bg);
+  padding: 1rem;
+}
+
+main {
+  padding: 1rem;
+}
