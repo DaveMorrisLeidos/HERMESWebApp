@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AppLayout from "./layout/AppLayout";
-import "./theme.css";
+import './css/theme.css'
 
 export default function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");

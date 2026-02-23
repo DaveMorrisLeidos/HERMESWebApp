@@ -3,9 +3,11 @@ export default function Sidebar() {
     <aside>
       <nav>
         <ul>
-          <li>Main</li>
-          <li>Admin</li>
-          <li>Help</li>
+          <li>On-Boarding Process</li>
+          <li>HERMES Data Services</li>
+          <li>HERMES Team Charter</li>
+          <li>HERMES FAQs</li>
+          <li>Contact the Team</li>
         </ul>
       </nav>
     </aside>

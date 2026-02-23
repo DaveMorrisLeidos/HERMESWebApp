@@ -1,0 +1,301 @@
+/* Leidos Brand System - Based on Brand Guidelines */
+:root {
+  /* Primary Leidos Colors */
+  --leidos-primary: #5C3A9E; /* Mid-ultraviolet */
+  --leidos-primary-bright: #8B63D1; /* Bright-ultraviolet for dark backgrounds */
+  --leidos-primary-light: #B299E0; /* Light ultraviolet */
+
+  /* Neutral dark (Wiz-like) */
+  --bg: #0C0F14;
+  --surface-1: #121621;
+  --surface-2: #171C29;
+  --surface-3: #1B2130;
+  --border: #2A3244;
+  --text-1: #E5EAF2;
+  --text-2: #B5C0D0;
+  --text-3: #7C8AA5;
+
+  /* Accent and states */
+  --accent: #6366F1; /* Indigo 500 */
+  --state-success: #22C55E;
+  --state-warning: #F59E0B;
+  --state-danger: #F43F5E;
+  --state-info: #38BDF8;
+  --focus-ring: rgba(99, 102, 241, 0.4);
+
+  /* Primary gradient used for prominent buttons */
+  --leidos-gradient-primary: linear-gradient(135deg, var(--leidos-primary) 0%, var(--leidos-primary-bright) 100%);
+  
+  /* Attenuation Gradients (10-20% opacity on white backgrounds) */
+  --leidos-gradient-attenuation-1: linear-gradient(135deg, 
+    rgba(92, 58, 158, 0.15) 0%, 
+    rgba(139, 99, 209, 0.10) 50%, 
+    rgba(178, 153, 224, 0.05) 100%);
+  
+  --leidos-gradient-attenuation-2: linear-gradient(45deg, 
+    rgba(92, 58, 158, 0.20) 0%, 
+    rgba(139, 99, 209, 0.12) 50%, 
+    rgba(178, 153, 224, 0.08) 100%);
+  
+  /* Full opacity illumination gradients for imagery */
+  --leidos-gradient-illumination: linear-gradient(135deg, 
+    #5C3A9E 0%, 
+    #8B63D1 50%, 
+    #B299E0 100%);
+  
+  /* Hexagon accent colors */
+  --leidos-hexagon-primary: #5C3A9E;
+  --leidos-hexagon-secondary: rgba(92, 58, 158, 0.15);
+  --leidos-hexagon-accent: rgba(139, 99, 209, 0.08);
+  
+  /* Text colors aligned with brand */
+  --leidos-text-primary: #1a1a1a;
+  --leidos-text-secondary: #666666;
+  --leidos-text-on-primary: #ffffff;
+}
+
+/* Ensure the left rail never shows a horizontal scrollbar */
+.MuiDrawer-paper {
+  scrollbar-width: none;
+  background: var(--surface-3);
+}
+.MuiDrawer-paper::-webkit-scrollbar { display: none; }
+
+/* Global scrollbar neutralization */
+* { scrollbar-color: rgba(122,133,153,0.35) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(122,133,153,0.35);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --leidos-primary: #B299E0; /* Brighter ultraviolet for better contrast on dark */
+  --leidos-primary-bright: #D4C5F0;
+
+  /* Primary gradient for dark mode */
+  --leidos-gradient-primary: linear-gradient(135deg, var(--leidos-primary-bright) 0%, var(--leidos-primary) 100%);
+
+  /* Enhanced dark mode gradients with more opacity */
+  --leidos-gradient-attenuation-1: linear-gradient(135deg,
+    rgba(178, 153, 224, 0.25) 0%,
+    rgba(139, 99, 209, 0.15) 50%,
+    rgba(92, 58, 158, 0.10) 100%);
+
+  --leidos-gradient-attenuation-2: linear-gradient(45deg,
+    rgba(178, 153, 224, 0.30) 0%,
+    rgba(139, 99, 209, 0.20) 50%,
+    rgba(92, 58, 158, 0.15) 100%);
+
+  /* Frosted glass gradient for panels */
+  --leidos-gradient-frosted: linear-gradient(135deg,
+    rgba(92, 58, 158, 0.3) 0%,
+    rgba(139, 99, 209, 0.2) 50%,
+    rgba(178, 153, 224, 0.1) 100%);
+
+  --leidos-text-primary: #ffffff;
+  --leidos-text-secondary: #cccccc;
+
+  /* Dark mode specific hexagon colors */
+  --leidos-hexagon-primary: #B299E0;
+  --leidos-hexagon-secondary: rgba(178, 153, 224, 0.15);
+  --leidos-hexagon-accent: rgba(139, 99, 209, 0.10);
+
+  /* Enhanced background colors */
+  --leidos-bg-primary: #0a0a0a;
+  --leidos-bg-secondary: #141414;
+  --leidos-bg-elevated: #1a1a1a;
+}
+
+/* Leidos Typography Classes */
+.leidos-heading-primary {
+  font-family: 'Avenir Next LT Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 900; /* Black for bold summary headers */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--leidos-text-primary);
+}
+
+.leidos-heading-secondary {
+  font-family: 'Avenir Next LT Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 300; /* Thin/Light for secondary captions */
+  color: var(--leidos-text-secondary);
+}
+
+.leidos-text-visionary {
+  font-family: 'Avenir Next LT Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 200; /* Thin for visionary captions */
+  color: var(--leidos-primary);
+  font-style: italic;
+}
+
+/* Hexagon background utilities */
+.leidos-hexagon-bg {
+  background: var(--leidos-hexagon-secondary);
+  position: relative;
+}
+
+.leidos-hexagon-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--leidos-gradient-attenuation-1);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Gradient backgrounds */
+.leidos-gradient-subtle {
+  background: var(--leidos-gradient-attenuation-1);
+}
+
+.leidos-gradient-medium {
+  background: var(--leidos-gradient-attenuation-2);
+}
+
+.leidos-gradient-bold {
+  background: var(--leidos-gradient-illumination);
+  color: var(--leidos-text-on-primary);
+}
+
+.leidos-gradient-frosted {
+  background: var(--leidos-gradient-frosted);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(178, 153, 224, 0.2);
+}
+
+/* Hexagon clipping utilities */
+.leidos-hex-clip {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
+/* Modern card animations - used by ModernFolderCard component */
+@keyframes modernCardRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Global Button Theming - Based on Hero Button Styles */
+.leidos-button-primary {
+  background: var(--leidos-gradient-primary) !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(139, 99, 209, 0.2) !important;
+}
+
+/* Ensure disabled primary buttons are visible in light mode */
+.leidos-button-primary.Mui-disabled {
+  background: #f3e8ff !important;
+  color: #7e22ce !important;
+  border: 1px solid #e9d5ff !important;
+  opacity: 1 !important;
+}
+
+.leidos-button-primary:hover {
+  background: var(--leidos-gradient-primary) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(139, 99, 209, 0.3) !important;
+}
+
+.leidos-button-secondary {
+  background: transparent !important;
+  color: var(--leidos-primary) !important;
+  border: 2px solid var(--leidos-primary) !important;
+  border-radius: 50px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Visible disabled state for secondary buttons in light mode */
+.leidos-button-secondary.Mui-disabled {
+  color: #a78bfa !important;
+  border-color: #e9d5ff !important;
+  background: #faf5ff !important;
+  opacity: 1 !important;
+}
+
+body:not(.light-mode) .leidos-button-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.2) !important;
+}
+
+.leidos-button-secondary:hover {
+  background: rgba(139, 99, 209, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+body:not(.light-mode) .leidos-button-secondary:hover {
+  background: rgba(255,255,255,0.1) !important;
+}
+
+.leidos-button-ghost {
+  background: rgba(139, 99, 209, 0.1) !important;
+  color: var(--leidos-primary) !important;
+  border: 1px solid rgba(139, 99, 209, 0.2) !important;
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.leidos-button-ghost.Mui-disabled {
+  background: #f5f3ff !important;
+  color: #a78bfa !important;
+  border-color: #e9d5ff !important;
+  opacity: 1 !important;
+}
+
+body:not(.light-mode) .leidos-button-ghost {
+  background: rgba(178, 153, 224, 0.1) !important;
+  color: #ffffff !important;
+  border-color: rgba(178, 153, 224, 0.2) !important;
+}
+
+.leidos-button-ghost:hover {
+  background: rgba(139, 99, 209, 0.2) !important;
+  border-color: var(--leidos-primary) !important;
+}
+
+body:not(.light-mode) .leidos-button-ghost:hover {
+  background: rgba(178, 153, 224, 0.2) !important;
+  border-color: var(--leidos-primary-bright) !important;
+}
+
+/* Watermark hexagons */
+.leidos-watermark {
+  position: absolute;
+  opacity: 0.03;
+  transform: scale(2.5);
+  pointer-events: none;
+  z-index: 0;
+  background: var(--leidos-hexagon-primary);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.leidos-watermark-top-right {
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 173px;
+}
+
+.leidos-watermark-bottom-left {
+  bottom: -50px;
+  left: -50px;
+  width: 150px;
+  height: 130px;
+} 

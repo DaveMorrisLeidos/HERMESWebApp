@@ -30,7 +30,25 @@ body {
   height: 100vh;
 }
 
-header { display: flex; justify-content: center; align-items: center; }
+header { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; /* ensures multi-line text centers */
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+header h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align:center
+}
 
 header, footer {
   grid-column: 1 / span 2;
@@ -39,8 +57,14 @@ header, footer {
 }
 
 aside {
+  width: 170px;
   background: var(--sidebar-bg);
   padding: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 main {
