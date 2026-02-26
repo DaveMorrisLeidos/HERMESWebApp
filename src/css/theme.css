@@ -1,3 +1,21 @@
+@import "tailwindcss";
+@import "material-symbols";
+
+
+/*-------*/
+.sidebar-nav .nav-list .primary-nav {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  padding: 0 15px;
+  flex-direction: column;
+  transform: translateY(15px);
+  transition: 0.4s ease;
+}
+
+
+/*-------*/
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -5,13 +23,20 @@ html, body, #root {
 }
 
 :root {
+  --bg: #B299E0; /* Light ultraviolet */  
+  --text:  #1a1a1a; /* leidos-text-primary */
+  --leidos-header-bg:  #ffffff; 
+  --sidebar-bg: #5C3A9E; /* Mid-ultraviolet */
+} 
+
+/* :root {
   --bg: #ffffff;
   --text: #222222;
   --sidebar-bg: #f4f4f4;
-}
+}  */
 
 [data-theme="dark"] {
-  --bg: #1e1e1e;
+  --bg: #0a0a0a; /*leidos-bg-primary */
   --text: #f5f5f5;
   --sidebar-bg: #2a2a2a;
 }
@@ -30,42 +55,38 @@ body {
   height: 100vh;
 }
 
-header { 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  text-align: center; /* ensures multi-line text centers */
-}
-
 header h1 {
   margin: 0;
-  padding: 0;
 }
 
 header h2 {
   font-size: 1rem;
   font-weight: 400;
   margin: 0;
-  padding: 0;
-  text-align:center
+} 
+
+header {
+  grid-column: 1 / span 2;
+  padding: 1rem;
+  background: var(--leidos-header-bg);
 }
 
-header, footer {
+footer {
   grid-column: 1 / span 2;
   padding: 1rem;
   background: var(--sidebar-bg);
-}
+} 
 
 aside {
-  width: 170px;
+  width:170px;
   background: var(--sidebar-bg);
-  padding: 1rem;
-}
+} 
 
 ul {
   list-style: none;
-  padding: 0;
-}
+  font-size: 14px;
+  padding: 0.75rem;
+} 
 
 main {
   padding: 1rem;
