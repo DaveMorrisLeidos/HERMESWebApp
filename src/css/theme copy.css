@@ -23,7 +23,7 @@
 [data-theme="dark"] {
   --bg: #1e1e1e;
   /* --text: #f5f5f5; */
-  --sidebar-bg: var(--leidos-primary);
+  --sidebar-bg: #2a2a2a;
 }
 
 .app-container {
@@ -46,9 +46,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-    /* font-family: "Poppins";   */
-  font-family: "Roboto";  
-  /* font-family: "Arial", '';   */
+  font-family: "Poppins", '';  /* fonts for all */
 } 
 
 body {
@@ -62,8 +60,8 @@ main {
   padding-top: 1rem;
   padding-left: 5rem;
   background: var(--bg);
-  /* color: var(--text); */
-  /* font-family: sans-serif;   */
+  color: var(--text);
+  font-family: sans-serif;  
 }
 
 .sidebar {
@@ -72,8 +70,8 @@ main {
   left: 0;
   padding: 0rem;
   z-index: 10;
-  width: 276px;
-  height: 84vh; 
+  width: 270px;
+  height: 85vh;
   background: var(--sidebar-bg); 
   transition: all 0.4s ease;
 }
@@ -126,12 +124,12 @@ main {
 }
 
 .sidebar-nav .nav-item .nav-link {
-  /* color: #000d1a; */
+  color: #000d1a;
   display: flex;
   gap: 12px;
   white-space: nowrap;
   border-radius: 8px;
-  padding: 11px 12px;
+  padding: 11px 15px;
   align-items: center;
   text-decoration: none;
   border: 1px solid white; /*sets sidebar menu items borders */
@@ -139,7 +137,7 @@ main {
 }
 
 .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) {
-  /* color: white; */
+  color: white;
   background: #004f99;
 }
 
@@ -215,7 +213,7 @@ main {
 }
 
 .dropdown-menu .nav-item .nav-link {
-  /* color: #000d1a; */
+  color: #000d1a;
   padding: 9px 15px;
 }
 
@@ -225,7 +223,7 @@ main {
 
 .dropdown-menu .nav-item .nav-link.dropdown-title {
   display: none;
-  /* color: #004f99; */
+  color: #004f99;
   padding: 9px 15px;
 }
 
@@ -251,7 +249,7 @@ main {
     height: 40px;
     width: 42px;
     display: flex;
-    /* color: #F1F4FF; */
+    color: #F1F4FF;
     background: #004f99;
   }
 

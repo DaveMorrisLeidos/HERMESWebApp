@@ -14,7 +14,8 @@ export default function App() {
 
   return (
     <AppLayout theme={theme} toggleTheme={toggleTheme}>
-      <h2>Welcome to the SPA Body Area</h2>
+      <h1>Welcome to the Body Area</h1>
+      <br></br>
       <p>Select a topic from the sidebar.</p>
     </AppLayout>
   );

@@ -1,0 +1,490 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Locbox display font (Bruno Ace SC) */
+@font-face {
+  font-family: "LocboxDisplay";
+  src: url("./fonts/BrunoAceSC-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-locbox: "LocboxDisplay", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.font-locbox {
+  font-family: var(--font-locbox);
+}
+
+/* If Avenir Next LT Pro is not available, we use these font face declarations */
+/* In a production environment, you would host these font files */
+
+body {
+  min-height: 100vh;
+  background: #181a20; /* neutral dark grey for dark mode */
+  color: #f3e8ff;
+  font-family: 'Avenir Next LT Pro', 'Inter', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.light-mode {
+  background: #f7f8fa;
+  color: #22223b;
+}
+
+html:not(.dark) body input,
+html:not(.dark) body textarea,
+html:not(.dark) body select,
+html:not(.dark) body [role="combobox"][data-slot="select-trigger"],
+html:not(.dark) body [data-slot="select-content"] *,
+html:not(.dark) body [data-slot="select-value"],
+html:not(.dark) body [role="combobox"],
+html:not(.dark) body .shadcn-input,
+html:not(.dark) body .shadcn-textarea {
+  color: var(--foreground) !important;
+  -webkit-text-fill-color: var(--foreground) !important;
+  background-color: var(--input-background);
+}
+
+html.dark body input,
+html.dark body textarea,
+html.dark body select,
+html.dark body [role="combobox"][data-slot="select-trigger"],
+html.dark body [data-slot="select-content"] *,
+html.dark body [data-slot="select-value"],
+html.dark body [role="combobox"],
+html.dark body .shadcn-input,
+html.dark body .shadcn-textarea {
+  color: var(--foreground) !important;
+  -webkit-text-fill-color: var(--foreground) !important;
+  background-color: var(--input);
+}
+
+html:not(.dark) body .MuiInputBase-input,
+html:not(.dark) body .MuiOutlinedInput-input,
+html:not(.dark) body .MuiFilledInput-input {
+  color: var(--foreground) !important;
+  -webkit-text-fill-color: var(--foreground) !important;
+}
+
+html.dark body .MuiInputBase-input,
+html.dark body .MuiOutlinedInput-input,
+html.dark body .MuiFilledInput-input {
+  color: var(--foreground) !important;
+  -webkit-text-fill-color: var(--foreground) !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #22232a;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a020f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* File browser styles */
+.file-browser {
+  height: calc(100vh - 120px);
+  overflow: hidden;
+}
+
+.file-grid {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.file-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.file-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.file-item.selected {
+  background-color: rgba(25, 118, 210, 0.08);
+}
+
+/* Loading states */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Error states */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #d32f2f;
+}
+
+/* Upload area */
+.upload-area {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+
+.upload-area:hover {
+  border-color: #1976d2;
+}
+
+.upload-area.dragover {
+  border-color: #1976d2;
+  background-color: rgba(25, 118, 210, 0.04);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+#root.light-mode {
+  background: #f7f8fa;
+}
+
+/* Optional: style scrollbars for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #22232a;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a020f0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-accent-rgb: 233 235 239;
+  --brand-purple: #6F5BFF;
+  --brand-purple-20: rgba(111, 91, 255, 0.2);
+  --brand-ultraviolet-dark: #421439;
+  --brand-purple-dark: #251846;
+  --brand-blue-dark: #1E2F5A;
+  --brand-teal-dark: #113333;
+  --brand-green-dark: #1D3811;
+  --brand-yellow-dark: #443C15;
+  --brand-orange-dark: #492914;
+  --brand-red-dark: #481919;
+  --brand-gray-dark: #3B3937;
+  --brand-ultraviolet-bright: #D62CD0;
+  --brand-ultraviolet-mid: #901588;
+  --brand-purple-bright: #734CDD;
+  --brand-blue-bright: #2981D7;
+  --brand-teal-bright: #0CB2A4;
+  --brand-green-bright: #52B711;
+  --brand-yellow-bright: #C3A60F;
+  --brand-orange-bright: #E5711E;
+  --brand-red-bright: #D73D31;
+  --brand-gray-bright: #BEBFBD;
+  --brand-white: #FFFFFF;
+  --appshell-rail-bg: #f4f5fb;
+  --appshell-topbar-bg: #f4f5fb;
+  
+  /* Login page tokens */
+  --login-bg: #0C0F14;
+  --login-surface: #10141C;
+  --login-border: rgba(255, 255, 255, 0.08);
+  --login-text: #E7ECF3;
+  --login-muted: #95A3B8;
+  --login-accent: #6F5BFF;
+  --login-accent-quiet: rgba(111, 91, 255, 0.24);
+  --login-success: #22C55E;
+  --login-danger: #EF4444;
+  --login-warning: #F59E0B;
+  
+  /* Typography size variables */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-accent-rgb: 56 58 64;
+  --brand-purple: #6F5BFF;
+  --brand-purple-20: rgba(111, 91, 255, 0.2);
+  --appshell-rail-bg: #251846;
+  --appshell-topbar-bg: #251846;
+  
+  /* Login page tokens */
+  --login-bg: #0C0F14;
+  --login-surface: #10141C;
+  --login-border: rgba(255, 255, 255, 0.08);
+  --login-text: #E7ECF3;
+  --login-muted: #95A3B8;
+  --login-accent: #6F5BFF;
+  --login-accent-quiet: rgba(111, 91, 255, 0.24);
+  --login-success: #22C55E;
+  --login-danger: #EF4444;
+  --login-warning: #F59E0B;
+  
+  /* Typography size variables */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-purple-20: var(--brand-purple-20);
+  --color-brand-ultraviolet-dark: var(--brand-ultraviolet-dark);
+  --color-brand-purple-dark: var(--brand-purple-dark);
+  --color-brand-blue-dark: var(--brand-blue-dark);
+  --color-brand-teal-dark: var(--brand-teal-dark);
+  --color-brand-green-dark: var(--brand-green-dark);
+  --color-brand-yellow-dark: var(--brand-yellow-dark);
+  --color-brand-orange-dark: var(--brand-orange-dark);
+  --color-brand-red-dark: var(--brand-red-dark);
+  --color-brand-gray-dark: var(--brand-gray-dark);
+  --color-brand-ultraviolet-bright: var(--brand-ultraviolet-bright);
+  --color-brand-ultraviolet-mid: var(--brand-ultraviolet-mid);
+  --color-brand-purple-bright: var(--brand-purple-bright);
+  --color-brand-blue-bright: var(--brand-blue-bright);
+  --color-brand-teal-bright: var(--brand-teal-bright);
+  --color-brand-green-bright: var(--brand-green-bright);
+  --color-brand-yellow-bright: var(--brand-yellow-bright);
+  --color-brand-orange-bright: var(--brand-orange-bright);
+  --color-brand-red-bright: var(--brand-red-bright);
+  --color-brand-gray-bright: var(--brand-gray-bright);
+  --color-brand-white: var(--brand-white);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+} 
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color: var(--foreground);
+}
+
+html.light-mode input,
+html.light-mode textarea,
+html.light-mode select {
+  color: var(--foreground);
+}

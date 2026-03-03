@@ -65,116 +65,65 @@ export default function Sidebar() {
   }, []);
   return (
     <aside className="sidebar"> 
-      <header className="sidebar-header">
-         <a href="#" className="header-logo">
-          <img src="logo.png" alt="Logo" />
-        </a> 
-        <button className="sidebar-toggler">
-          <span className="material-symbols-rounded">chevron_left</span>
-        </button>
-      </header>
-
       <nav className="sidebar-nav">
         <ul className="nav-list primary-nav">
           <li className="nav-item">
             <a href="#" className="nav-link">
-              <span className="material-symbols-rounded">dashboard</span>
-              <span className="nav-label">Dashboard</span>
+              <span className="material-symbols-rounded text-slate-50">app_registration</span>
+              <span className="nav-label text-sm text-slate-50">On-Boarding Process</span>
             </a>
-            <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Dashboard</a></li>
-            </ul>
           </li>
 
-          <li className="nav-item dropdown-container">
+          <li className="nav-item dropdown-container text-slate-50">
             <a href="#" className="nav-link dropdown-toggle">
-              <span className="material-symbols-rounded">calendar_today</span>
-              <span className="nav-label">Services</span>
+              <span className="material-symbols-rounded">dataset</span>
+              <span className="nav-label">HERMES Data Services</span>
               <span className="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
             </a>
-
-            <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Services</a></li>
-              <li className="nav-item"><a href="#" className="nav-link dropdown-link">IT Consulting</a></li>
-              <li className="nav-item"><a href="#" className="nav-link dropdown-link">Cloud Solutions</a></li>
-              <li className="nav-item"><a href="#" className="nav-link dropdown-link">Mobile Apps</a></li>
+            <ul className="dropdown-menu text-slate-50">
+              <li className="nav-item"><a className="nav-link dropdown-title">HERMES Data Services</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Prototype</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Digital Library</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Data Explorer</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Web Query</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">AI-Assisted Query</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Subscribe Data</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Subscribe Wiki</a></li>
+              <li className="nav-item"><a href="#" className="nav-link dropdown-link text-sm">Alert & Notification</a></li>
             </ul>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item text-slate-50">
             <a href="#" className="nav-link">
-              <span className="material-symbols-rounded">notifications</span>
-              <span className="nav-label">Notifications</span>
+              <span className="material-symbols-rounded">article</span>
+              <span className="nav-label text-sm text-slate-50">HERMES Team Charter</span>
             </a>
             <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Notifications</a></li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <span className="material-symbols-rounded">local_library</span>
-              <span className="nav-label">Resources</span>
-            </a>
-            <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Resources</a></li>
+              <li className="nav-item"><a className="nav-link dropdown-title text-sm">HERMES Team Charter</a></li>
             </ul>
           </li>
 
-          <li className="nav-item dropdown-container">
-            <a href="#" className="nav-link dropdown-toggle">
-              <span className="material-symbols-rounded">star</span>
-              <span className="nav-label">Bookmarks</span>
-              <span className="dropdown-icon material-symbols-rounded">keyboard_arrow_down</span>
-            </a>
-
-            <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Bookmarks</a></li>
-              <li className="nav-item"><a href="#" className="nav-link dropdown-link">Saved Tutorials</a></li>
-              <li className="nav-item"><a href="#" className="nav-link dropdown-link">Favorite Blogs</a></li>
-              <li className="nav-item"><a href="#" className="nav-link dropdown-link">Resource Guides</a></li>
-            </ul>
-          </li>
-
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <span className="material-symbols-rounded">extension</span>
-              <span className="nav-label">Extensions</span>
-            </a>
-            <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Extensions</a></li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <span className="material-symbols-rounded">settings</span>
-              <span className="nav-label">Settings</span>
-            </a>
-            <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Settings</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <ul className="nav-list secondary-nav">
-          <li className="nav-item">
+          <li className="nav-item text-slate-50">
             <a href="#" className="nav-link">
               <span className="material-symbols-rounded">help</span>
-              <span className="nav-label">Support</span>
+              <span className="nav-label text-sm">HERMES FAQs</span>
             </a>
             <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Support</a></li>
+              <li className="nav-item"><a className="nav-link dropdown-title">HERMES FAQs</a></li>
             </ul>
           </li>
-          <li className="nav-item">
+
+          <li className="nav-item text-slate-50">
             <a href="#" className="nav-link">
-              <span className="material-symbols-rounded">logout</span>
-              <span className="nav-label">Sign Out</span>
+              <span className="material-symbols-rounded">contact_page</span>
+              <span className="nav-label text-sm">Contact the Team</span>
             </a>
             <ul className="dropdown-menu">
-              <li className="nav-item"><a className="nav-link dropdown-title">Sign Out</a></li>
+              <li className="nav-item"><a className="nav-link dropdown-title">Contact the Team</a></li>
             </ul>
-          </li>
-        </ul>
+          </li>          
+      </ul>
+
       </nav>
     </aside>
   );  
