@@ -8,19 +8,24 @@ interface FooterProps {
 
 export default function Footer({ theme, toggleTheme }: FooterProps) {
   return (
-    <footer className="py-4 px-6 flex justify-between items-center text-sm text-grayp-500">
-        <button onClick={toggleTheme} className="rounded-full" >
-          {/* Icons */}
-          <span>{theme === "dark" ? (
-              <Sun/> 
-            ) : (
-              <Moon/>             
-            )
-          }  
-          </span>
-        </button>
-      {/* </span> */}
-      <span className ="text-gray-400">Version {pkg.version}</span>
+    <footer className="bg-zinc-800 flex justify-between items-center text-sm">
+      <button onClick={toggleTheme} className="rounded-full" >
+        {/* Icons */}
+        <span>{theme === "dark" ? (
+            <Sun className="text-yellow-300"/> 
+          ) : (
+            <Moon className="text-white"/>             
+          )
+        }  
+        </span>
+      </button>
+      <span></span>
+      <nav className="flex items-center flex-wrap gap-50 font-medium">
+          <a className="text-slate-50 text-xs hover:underline" href="#">HERMES Jira</a>
+          <a className="text-slate-50 text-xs hover:underline" href="#">HERMES Confluence</a>
+          <a className="text-slate-50 text-xs hover:underline" href="#">HERMES SharePoint</a>
+      </nav>      
+      <span className ="text-xs text-slate-200">Version {pkg.version}</span>
     </footer>
   );
 }

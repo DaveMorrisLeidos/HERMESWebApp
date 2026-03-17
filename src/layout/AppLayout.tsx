@@ -17,7 +17,9 @@ export default function AppLayout({
     <div className="layout">
       <Header />
       <Sidebar />
-      <main>{children}</main>
+      <main>
+        {children}
+      </main>
       <Footer theme={theme} toggleTheme={toggleTheme} />
     </div>
   );
